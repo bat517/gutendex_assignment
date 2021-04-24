@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('/assets/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+$fontFamilyValue: 'Montserrat-SemiBold';
+$blueShade: #5E56E7;
+$lightGreyShade: #F0F0F6;
+$darkGreyShade: #A0A0A0;
+body {
+    font-family: $fontFamilyValue;
+    font-size: 16px;
+    background-color: #F8F7FF;
+}
+
+h1 {
+    font-family: $fontFamilyValue;
+    font-size: 48px;
+    color: $blueShade;
+}
+
+h2 {
+    font-family: $fontFamilyValue;
+    font-size: 30px;
+    color: $blueShade;
+}
+
+.genre-card {
+    font-family: $fontFamilyValue;
+    font-size: 20px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+}
+
+.search-box {
+    font-family: $fontFamilyValue;
+    font-size: 16px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    border: 0.5px solid $darkGreyShade;
+    background-color: $lightGreyShade !important;
+}
+
+.search-box:focus {
+    border: 0.5px solid $blueShade;
+}
+
+.spin {
+    animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}

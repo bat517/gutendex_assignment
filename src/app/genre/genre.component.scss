@@ -1,0 +1,80 @@
+@import '../../styles.scss';
+.genre-header {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.container-fluid {
+    background-color: white;
+}
+
+.prev-icon {
+    margin-right: 10px;
+}
+
+.search-box {
+    width: 100%;
+    background: url(../../assets/img/Search.svg) no-repeat scroll 10px 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+}
+
+.search-box-holder {
+    position: relative;
+}
+
+.cancel-icon {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    cursor: pointer;
+}
+
+.bookshelf {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bookshelf-box {
+    flex-basis: 18%;
+    margin-top: 45px;
+}
+
+.book {
+    width: 114px;
+    height: 162px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+    font-family: $fontFamilyValue;
+    font-size: 12px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+caption.title {
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333333;
+}
+
+caption.author {
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $darkGreyShade;
+    padding: 0;
+}
+
+@media(max-width: 768px) {
+    // .bookshelf-box {
+    //     flex-basis: 25%;
+    // }
+}

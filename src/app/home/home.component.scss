@@ -1,0 +1,38 @@
+.heading {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-container-box {
+    flex-basis: 45%;
+    margin: 12px;
+}
+
+.icon-genre {
+    flex: 1;
+}
+
+.title-genre {
+    flex: 10;
+}
+
+.genre-card {
+    align-items: center;
+    cursor: pointer;
+}
+
+.img-icon {
+    height: 28px;
+}
+
+@media(max-width: 768px) {
+    .flex-container-box {
+        flex-basis: 100%;
+        margin: 12px;
+    }
+}

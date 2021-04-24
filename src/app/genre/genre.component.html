@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="container">
+        <h2 class="genre-header" [routerLink]="['/home']"><img src="../../assets/img/Back.svg" alt="Back" class="prev-icon"> {{genreData.genreName}}</h2>
+        <div class="search-box-holder">
+            <input type='text' class="search-box" id="search-box" placeholder="Search" [(ngModel)]="genreData.searchKeyword">
+            <img src="../../assets/img/Cancel.svg" alt="Cancel" class="cancel-icon" *ngIf="genreData.searchKeyword" (click)="handler({case:'clearSearch'})">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="bookshelf" *ngIf="genreData.bookResponse.results.length">
+        <div class="bookshelf-box" *ngFor="let book of genreData.bookResponse.results">
+            <div class="book" [id]="book.id" (click)="openBook(book)">
+                <img [src]="book['formats']['image/jpeg']" style="max-width: 100%; height: 100%; width: inherit;" class="book">
+                <caption class="title">
+                    {{book.title}}
+                </caption>
+                <caption class="author">
+                    {{book.authors[0].name}}
+                </caption>
+            </div>
+        </div>
+        <div class="bookshelf-box" *ngIf="genreData.loader">
+            <div class="book" style="padding-top: 30%; text-align: center;">
+                Loading... <i class="fas fa-spinner fa-spin"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bookshelf" *ngIf="genreData.bookResponse.results.length == 0">
+        No books available
+    </div>
+</div>
