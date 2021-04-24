@@ -108,18 +108,24 @@ export class GenreComponent implements OnInit {
               return (Object.keys(eachBook.formats).includes('image/jpeg'))
             }
           );
+          this.apiCalls({method: 'GET', url: this.genreData.bookResponse.next, case:'getMoreBooks'});
           break;
         case "getMoreBooks":
-            this.genreData.bookResponse.next = resp['next'];
-            resp['results'].forEach(
-              each=>{
-                this.genreData.bookResponse.results.push(each);
-              }
-            );
-            if(this.genreData.bookResponse.next == null)
-            {
-              this.genreData.loader = false;
+          this.genreData.bookResponse.next = resp['next'];
+          resp['results']
+          .filter(eachBook => {
+            return (Object.keys(eachBook.formats).includes('image/jpeg'))
+          })
+          .forEach(
+            each=>{
+              this.genreData.bookResponse.results.push(each);
             }
+          )
+          if(this.genreData.bookResponse.results.length < 10)
+          {
+            this.apiCalls({method: 'GET', url: this.genreData.bookResponse.next, case:'getMoreBooks'});
+          }
+          this.genreData.loader = false;
           break;
         default:
           console.log(opt);
@@ -157,7 +163,4 @@ export class GenreComponent implements OnInit {
       this.router.navigate(['home'])
     }
   }
-  trackByEmpCode(index: number, employee: any): string {
-    return employee.code;
-}
 }
